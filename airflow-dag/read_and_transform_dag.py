@@ -115,40 +115,32 @@ def transform_data(df_clean, cursor, conn):
     print(result_df)
 
 
-if __name__ == "__main__":
-    # Define the default_args dictionary
-    default_args = {
-        'owner': 'airflow',
-        'depends_on_past': False,
-        'start_date': datetime(2024, 6, 27),
-        'email': ['srsandy66@gmail.com'],
-        'email_on_failure': False,
-        'email_on_retry': False,
-        'retries': 1,
-        'retry_delay': timedelta(minutes=5),
-    }
-    # Instantiate the DAG
-    read_and_transform_dag = DAG(
-        'read_and_transform_dag',
-        default_args=default_args,
-        description='A simple PythonOperator DAG',
-        schedule_interval=timedelta(days=1),
-    )
+# Define the default_args dictionary
+default_args = {
+    'owner': 'airflow',
+    'depends_on_past': False,
+    'start_date': datetime(2024, 6, 27),
+    'email': ['srsandy66@gmail.com'],
+    'email_on_failure': False,
+    'email_on_retry': False,
+    'retries': 1,
+    'retry_delay': timedelta(minutes=5),
+}
+# Instantiate the DAG
+read_and_transform_dag = DAG(
+    'read_and_transform_dag',
+    default_args=default_args,
+    description='A simple PythonOperator DAG',
+    schedule_interval=timedelta(days=1),
+)
 
-    # Define the PythonOperator
-    read_and_transform = PythonOperator(
-        task_id='read_and_transform',
-        python_callable=read_data(),
-        dag=read_and_transform_dag,
-    )
+# Define the PythonOperator
+read_and_transform = PythonOperator(
+    task_id='read_and_transform',
+    python_callable=read_data(),
+    dag=read_and_transform_dag,
+)
 
-    # Set the upstream and downstream dependencies (none in this case)
-    read_and_transform()
-    #read_data()
-
-
-
-
-
-
-
+# Set the upstream and downstream dependencies (none in this case)
+read_and_transform()
+    
