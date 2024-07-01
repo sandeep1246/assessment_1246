@@ -8,7 +8,7 @@ def read_data():
             "DRIVER={PostgreSQL Unicode};"
             "DATABASE=postgres;"
             "UID=postgres;"
-            "PWD=aman@123;"
+            "PWD=xxxxx"
             "SERVER=localhost;"
             "PORT=5432;"
         )
@@ -19,7 +19,7 @@ def read_data():
         # Create a cursor object using the cursor() method
         cursor = conn.cursor()
 
-        file_name = "C:\\Users\\aman7\\Documents\\assesment1\\data.csv"
+        file_name = "C:\\Users\\sandy\\Documents\\assesment1\\data.csv"
         # Read CSV file into DataFrame
         df = pd.read_csv(file_name)
         # Convert 'timestamp' column to datetime objects
