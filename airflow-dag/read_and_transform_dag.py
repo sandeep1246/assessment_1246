@@ -10,7 +10,7 @@ def read_data():
             "DRIVER={PostgreSQL Unicode};"
             "DATABASE=postgres;"
             "UID=postgres;"
-            "PWD=PriyaD@123;"
+            "PWD=xxxxxxxx;"
             "SERVER=localhost;"
             "PORT=5432;"
         )
